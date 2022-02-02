@@ -36,19 +36,6 @@ public class Controller {
 
     public static void main(String[] args) {
 
-        //Initial board values
-        game[0][0] = "1";
-        game[0][1] = "2";
-        game[0][2] = "3";
-
-        game[1][0] = "4";
-        game[1][1] = "5";
-        game[1][2] = "6";
-
-        game[2][0] = "7";
-        game[2][1] = "8";
-        game[2][2] = "9";
-        
         //Add a loop below to continuously promput the user for their choice 
         //until they choose to exit.
         String option = "";
@@ -75,6 +62,7 @@ public class Controller {
         //Add a switch to process the option
         switch (option.toUpperCase()) {
             case "A":
+                resetBoard();
                 game();
                 break;
             case "X":
@@ -84,6 +72,12 @@ public class Controller {
         }
     }
 
+    /**
+     * This method is responsible to emulate the TicTacToe game
+     * 
+     * @author Arthur Zuliani
+     * @since 20220201
+     */
     public static void game() {
 
         int positionNumber;
@@ -220,5 +214,27 @@ public class Controller {
         for (String[] currentLine : game) {
             System.out.println(Arrays.toString(currentLine));
         }
+    }
+    
+    /**
+     * This method initialize board positions
+     * 
+     * @author Arthur Zuliani
+     * @since 20220201
+     */
+    public static void resetBoard() {
+        
+        //Initial board values
+        game[0][0] = "1";
+        game[0][1] = "2";
+        game[0][2] = "3";
+
+        game[1][0] = "4";
+        game[1][1] = "5";
+        game[1][2] = "6";
+
+        game[2][0] = "7";
+        game[2][1] = "8";
+        game[2][2] = "9";
     }
 }
