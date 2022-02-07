@@ -42,12 +42,15 @@ public class Game {
      * @author Arthur Zuliani
      * @since 20220127
      */
-    public void getInformation() {
+    public void getStartAmount() {
 
         startAmount = CisUtility.getInputDouble("Enter initial amount");
 
-        betAmount = CisUtility.getInputDouble("Enter bet amount");
+    }
 
+    public void getBetAmount() {
+
+        betAmount = CisUtility.getInputDouble("Enter bet amount");
         linesToBet = CisUtility.getInputInt("Enter how many lines to bet");
     }
 
@@ -78,7 +81,7 @@ public class Game {
                 int spinTimes = CisUtility.getRandom(20);
 
                 for (int randomIndex = 0; randomIndex < spinTimes; randomIndex++) {
-                    spinNumber = CisUtility.getRandom(20);
+                    spinNumber = CisUtility.getRandom(19);
                 }
                 spinOutput[j][i] = betChances[spinNumber];
 
@@ -93,6 +96,7 @@ public class Game {
 
             }
         }
+
     }
 
     /**

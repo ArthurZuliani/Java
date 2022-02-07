@@ -14,35 +14,34 @@ import cis.entity.Game;
  * @since 20181115
  */
 public class Controller {
-    
+
     public static final String EXIT = "X";
-    
+
     public static Game game = new Game();
-    
+
     private static final String MENU
             = "\n-------------------------\n"
             + "- CIS Menu\n"
             + "- A-Initial Amount\n"
             + "- B-Bet\n"
-            + "- C-Process C\n"
             + "- X-eXit\n"
             + "-------------------------\n"
             + "Option-->";
-    
+
     public static void main(String[] args) {
 
         //Add a loop below to continuously promput the user for their choice 
-        //until they choose to exit.
+        //until they choose to exit.        
         String option = "";
 
-        CisUtility.display("Today is: "+CisUtility.getCurrentDate(null), "Red");
-        CisUtility.display("The random number is "+CisUtility.getRandom(20), "Green");
-        
+        CisUtility.display("Today is: " + CisUtility.getCurrentDate(null), "Red");
+        CisUtility.display("The random number is " + CisUtility.getRandom(20), "Green");
+
         do {
             option = CisUtility.getInputString(MENU, "Green");
             processMenuOption(option);
         } while (!option.equalsIgnoreCase(EXIT));
-        
+
     }
 
     /**
@@ -58,27 +57,19 @@ public class Controller {
         //Add a switch to process the option
         switch (option.toUpperCase()) {
             case "A":
-                CisUtility.display("User picked a");
-                //game.getInformation();
+                game.getStartAmount();
+                break;
+            case "B":
+                game.getBetAmount();
                 game.spinMachine();
                 game.calculatePay();
                 game.showResult();
                 break;
-            case "B":
-                CisUtility.display("User picked b");
-                break;
-            case "C":
-                CisUtility.display("User picked c");
-                break;
-            case "GV":
-                CisUtility.display(CisUtility.getRandom());
-                break;
             case "X":
-                CisUtility.display("User picked x");
                 break;
             default:
                 CisUtility.display("Invalid entry");
         }
     }
-    
+
 }
